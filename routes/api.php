@@ -20,6 +20,7 @@ Route::post('/reservations', [ReservationController::class, 'store']);
 Route::get('/transactions', [TransactionController::class, 'index']);
 Route::post('/transactions', [TransactionController::class, 'store']);
 Route::get('/buses', [BusController::class, 'index']);
+Route::get('/buses/filter', [BusController::class, 'getBusSched']);
 
 
 // Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

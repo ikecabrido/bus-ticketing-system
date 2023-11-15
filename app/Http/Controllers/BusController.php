@@ -13,5 +13,11 @@ class BusController extends Controller
         // return 'Successful route! You have a connection';
     }
 
-    public function getBusSchedule() {}
+    public function getBusSched(Request $request) {
+        $bus = Bus::where("destinationFrom" , $request->query("destinationFrom"))
+        ->where("destinationTo", $request->query("destinationTo"))->get();
+        return BusResource::collection($bus);
+        // return $bus;
+        // return $request->query();
+    }
 }

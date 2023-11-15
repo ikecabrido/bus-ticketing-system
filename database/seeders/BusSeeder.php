@@ -63,8 +63,6 @@ class BusSeeder extends Seeder
             '22/11/2023',
             '23/11/2023',
             '24/11/2023',
-            '25/11/2023',
-            '26/11/2023'
         ];
 
         $busTypes = ['Regular', 'Premium', 'P2P'];
