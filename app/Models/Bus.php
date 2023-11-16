@@ -26,7 +26,12 @@ class Bus extends Model
         return $this->hasOne(Reservation::class);
     }
 
-    public function destination():BelongsTo {
-        return $this->belongsTo(Destination::class);
+    public function destination_to():HasOne {
+        return $this->hasOne(Destination::class, 'id', 'destination_to_id');
+        
+    }
+    public function destination_from():HasOne {
+        return $this->hasOne(Destination::class, 'id', 'destination_from_id');
+        
     }
 }

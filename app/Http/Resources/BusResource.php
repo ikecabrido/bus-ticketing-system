@@ -18,16 +18,10 @@ class BusResource extends JsonResource
         // $destination = destination();
         return [
             'id' => $this->id,
-            // 'destination_to' => [
-            //     // 'id' => $this->destination_to_id->id,
-            //     'place' => $this->destination_to_id->place
-            // ],
-            // 'destination_from' => [
-            //     // 'id' => $this->destination_from_id->id,
-            //     'place' => $this->destination_from_id->place
-            // ],
-            'destination_to_id' =>$this->destination_to_id,
-            'destination_from_id' =>$this->destination_from_id,
+            'destination_to' => $this->destination_to,
+            'destination_from' => $this->destination_from,
+            // 'destination_to_id' =>$this->destination_to_id,
+            // 'destination_from_id' =>$this->destination_from_id,
             // 'destination_to_id' =>$destination->destination_to_id,
             // 'destination_from_id' =>$destination->destination_from_id,
             // 'destination' => [

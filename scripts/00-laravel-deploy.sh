@@ -12,5 +12,8 @@ php artisan route:cache
 echo "Running migrations..."
 php artisan migrate:fresh --force
 
-echo "Seeding data..."
-php artisan db:seed --force --class=DestinationSeeder
+echo "Seeding Destination data..."
+php artisan db:seed --force --class=DestinationSeeder 
+
+echo "Seeding Bus data..."
+php artisan db:seed --force --class=BusSeeder 

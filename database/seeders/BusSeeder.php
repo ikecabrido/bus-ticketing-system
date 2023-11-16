@@ -72,7 +72,11 @@ class BusSeeder extends Seeder
 
         $objectLength = 48;
 
+        $destination = Destination::pluck('id');
+
+        
         for ($i = 0; $i < $objectLength; $i++) {
+            $destinations = $destination[$i % count($destination)];
             $busType = $busTypes[$i % count($busTypes)];
             $price = $prices[$i % count($prices)];
             // $destinationFrom = $from[$i % count($from)];
@@ -80,9 +84,14 @@ class BusSeeder extends Seeder
             $departureTime = $departureTimes[$i % count($departureTimes)];
             $departureDate = $date[$i % count($date)];
 
+            if ('destination_to_id' !== 'destination_to_id') {
+                $destinations;
+            }
+    
+            
             Bus::factory()->create([
-                'destination_to_id' => fake()->randomElement(Destination::pluck('id')),
-                'destination_from_id' => fake()->randomElement(Destination::pluck('id')),
+                'destination_to_id' => $destinations,
+                'destination_from_id' => $destinations,
                 'bus_number' => $busNumber++,
                 'bus_type' => $busType,
                 'price' => $price,
