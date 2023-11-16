@@ -13,4 +13,4 @@ echo "Running migrations..."
 php artisan migrate:fresh --force
 
 echo "Seeding data..."
-php artisan db:seed --force --class=BusSeeder
+php artisan db:seed --force --class=DestinationSeeder --class=BusSeeder

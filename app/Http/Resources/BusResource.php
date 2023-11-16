@@ -17,16 +17,16 @@ class BusResource extends JsonResource
         // $destinationTo = Destination::find('id')
         return [
             'id' => $this->id,
-            'destination_to' => [
-                // 'id' => $this->destination_to_id->id,
-                'place' => $this->destination_to_id->place
-            ],
-            'destination_from' => [
-                // 'id' => $this->destination_from_id->id,
-                'place' => $this->destination_from_id->place
-            ],
-            // 'destination_to_id' =>$this->destination_to_id,
-            // 'destination_from_id' =>$this->destination_from_id,
+            // 'destination_to' => [
+            //     // 'id' => $this->destination_to_id->id,
+            //     'place' => $this->destination_to_id->place
+            // ],
+            // 'destination_from' => [
+            //     // 'id' => $this->destination_from_id->id,
+            //     'place' => $this->destination_from_id->place
+            // ],
+            'destination_to_id' =>$this->destination_to_id,
+            'destination_from_id' =>$this->destination_from_id,
             // 'destination' => [
             //     'id' => $this->destination->id,
             //     'place' => $this->destination->place
