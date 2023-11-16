@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Destination;
 use App\Models\Bus;
 
 class BusSeeder extends Seeder
@@ -13,28 +14,27 @@ class BusSeeder extends Seeder
      */
     public function run(): void
     {
-        $from = [
-            'Cubao', 'Cubao', 'Cubao',
-            'Baguio', 'Baguio', 'Baguio',
-            'Cubao', 'Cubao', 'Cubao',
-            'Tuguegarao', 'Tuguegarao', 'Tuguegarao',
-            'Pasay', 'Pasay', 'Pasay',
-            'Baguio', 'Baguio', 'Baguio',
-            'Tuguegarao', 'Tuguegarao', 'Tuguegarao',
-            'Pasay', 'Pasay', 'Pasay',
-        ];
+        // $from = [
+        //     'Cubao', 'Cubao', 'Cubao',
+        //     'Baguio', 'Baguio', 'Baguio',
+        //     'Cubao', 'Cubao', 'Cubao',
+        //     'Tuguegarao', 'Tuguegarao', 'Tuguegarao',
+        //     'Pasay', 'Pasay', 'Pasay',
+        //     'Baguio', 'Baguio', 'Baguio',
+        //     'Tuguegarao', 'Tuguegarao', 'Tuguegarao',
+        //     'Pasay', 'Pasay', 'Pasay',
+        // ];
 
-        $to = [
-            'Baguio', 'Baguio', 'Baguio',
-            'Cubao', 'Cubao', 'Cubao',
-            'Tuguegarao', 'Tuguegarao', 'Tuguegarao',
-            'Cubao', 'Cubao', 'Cubao',
-            'Baguio', 'Baguio', 'Baguio',
-            'Pasay', 'Pasay', 'Pasay',
-            'Pasay', 'Pasay', 'Pasay',
-            'Tuguegarao', 'Tuguegarao', 'Tuguegarao',
-        ];
-
+        // $to = [
+        //     'Baguio', 'Baguio', 'Baguio',
+        //     'Cubao', 'Cubao', 'Cubao',
+        //     'Tuguegarao', 'Tuguegarao', 'Tuguegarao',
+        //     'Cubao', 'Cubao', 'Cubao',
+        //     'Baguio', 'Baguio', 'Baguio',
+        //     'Pasay', 'Pasay', 'Pasay',
+        //     'Pasay', 'Pasay', 'Pasay',
+        //     'Tuguegarao', 'Tuguegarao', 'Tuguegarao',
+        // ];
         $departureTimes = [
             '2:00 am', '4:00 am', '6:00 am',
             '9:00 am', '11:00 am', '1:00 pm',
@@ -75,17 +75,19 @@ class BusSeeder extends Seeder
         for ($i = 0; $i < $objectLength; $i++) {
             $busType = $busTypes[$i % count($busTypes)];
             $price = $prices[$i % count($prices)];
-            $destinationFrom = $from[$i % count($from)];
-            $destinationTo = $to[$i % count($to)];
+            // $destinationFrom = $from[$i % count($from)];
+            // $destinationTo = $to[$i % count($to)];
             $departureTime = $departureTimes[$i % count($departureTimes)];
             $departureDate = $date[$i % count($date)];
 
             Bus::factory()->create([
+                'destination_to_id' => fake()->randomElement(Destination::pluck('id')),
+                'destination_from_id' => fake()->randomElement(Destination::pluck('id')),
                 'bus_number' => $busNumber++,
                 'bus_type' => $busType,
                 'price' => $price,
-                'destinationFrom' => $destinationFrom,
-                'destinationTo' => $destinationTo,
+                // 'destinationFrom' => $destinationFrom,
+                // 'destinationTo' => $destinationTo,
                 'departure_time' => $departureTime,
                 'departure_date' => $departureDate
             ]);

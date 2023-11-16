@@ -15,6 +15,7 @@ use App\Http\Controllers\TransactionController;
 | be assigned to the "api" middleware group. Make something great!
 |
 */
+Route::get('/places', [BusController::class, 'getPlaces']);
 Route::get('/reservations', [ReservationController::class, 'index']);
 Route::post('/reservations', [ReservationController::class, 'store']);
 Route::get('/transactions', [TransactionController::class, 'index']);
