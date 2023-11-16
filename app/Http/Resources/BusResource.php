@@ -15,6 +15,7 @@ class BusResource extends JsonResource
     public function toArray(Request $request): array
     {
         // $destinationTo = Destination::find('id')
+        // $destination = destination();
         return [
             'id' => $this->id,
             // 'destination_to' => [
@@ -27,6 +28,8 @@ class BusResource extends JsonResource
             // ],
             'destination_to_id' =>$this->destination_to_id,
             'destination_from_id' =>$this->destination_from_id,
+            // 'destination_to_id' =>$destination->destination_to_id,
+            // 'destination_from_id' =>$destination->destination_from_id,
             // 'destination' => [
             //     'id' => $this->destination->id,
             //     'place' => $this->destination->place
