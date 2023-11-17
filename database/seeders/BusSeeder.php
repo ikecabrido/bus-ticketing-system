@@ -85,12 +85,12 @@ class BusSeeder extends Seeder
             $departureDate = $date[$i % count($date)];
 
             if ('destination_to_id' !== 'destination_to_id') {
-                $destinations;
+                $places[] = $destinations;
             }
     
             
             Bus::factory()->create([
-                'destination_to_id' => $destinations,
+                'destination_to_id' => fake()->randomElement(Destination::pluck('id')),
                 'destination_from_id' => $destinations,
                 'bus_number' => $busNumber++,
                 'bus_type' => $busType,
