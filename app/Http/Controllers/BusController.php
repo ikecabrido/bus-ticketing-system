@@ -50,8 +50,8 @@ class BusController extends Controller
             }
         
             return BusResource::collection($bus);
-        } catch (Exception $e) {
-            return response()->json(['message' => $e->getMessage()], 404);
+        } catch (e) {
+            return response()->json(['message' => e->getMessage()], 404);
         }
 
     }
