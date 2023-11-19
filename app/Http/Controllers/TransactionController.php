@@ -6,9 +6,24 @@ use Illuminate\Http\Request;
 
 class TransactionController extends Controller
 {
+    public function index() {
+        return TransactionResource::collection(Transaction::all());
+    }
+
+
     public function store(Request $request)
     {
-        $transaction = Transaction::create($request->all());
+        $fields = $request->valildate([
+            'reservation_id' => 'numeric'
+        ]);
+
+        $reservation = Reservation::find($fields['reservation_id']);
+
+        $transaction = Transaction::create([
+            'reservation_id' => $reservation,
+            'ticket_number' => fake()->unique()->numberBetween(1000, 9999),
+            'transaction_date' => now()
+        ]);
 
         // $reservation = Reservation::find($id);
         // $transaction = Transaction::create([
